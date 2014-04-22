@@ -1,3 +1,5 @@
+require 'cocoapods'
+
 module Pod
   class Command
     class Spec
