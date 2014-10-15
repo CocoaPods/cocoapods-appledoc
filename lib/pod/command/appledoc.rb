@@ -6,7 +6,9 @@ module Pod
     class Spec
       class Appledoc < Spec
         self.summary = 'Generate documentation for a pod using appledoc'
-        self.arguments = '[ NAME ]'
+        self.arguments = [
+          CLAide::Argument.new('NAME', false)
+        ]
 
         def initialize(argv)
           @name = argv.shift_argument
