@@ -5,6 +5,12 @@
 CocoaPods plugin which allows you to generate documentation for a pod spec
 using AppleDoc.
 
+## Installation
+
+```bash
+$ gem install cocoapods-appledoc
+```
+
 ## Usage
 
 ```bash
