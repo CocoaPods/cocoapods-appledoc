@@ -8,6 +8,9 @@ using AppleDoc.
 ## Usage
 
 ```bash
-$ pod spec appledoc POD_NAME
+$ pod appledoc QueryKit
+
+Docset has been generated for QueryKit (0.8.3) and can be found in
+/Users/kylef/Desktop/QueryKit-0.8.3
 ```
 
