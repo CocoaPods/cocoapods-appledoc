@@ -82,12 +82,18 @@ module Pod
         end
 
         def run
-          @spec = spec_with_name(@name)
+          @spec = spec_with_path(@name) || spec_with_name(@name)
 
           raise Informative, "Docset in #{output_location} already exists" if File.exist?(output_location)
 
           download unless File.exist?(download_location)
           generate_docset
+        end
+
+        def spec_with_path(path)
+          Spec.from_file(path)
+        rescue
+          nil
         end
 
         def spec_with_name(name)
