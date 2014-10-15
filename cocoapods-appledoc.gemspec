@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name = 'cocoapods-appledoc'
   spec.version = Pod::AppleDoc::VERSION
   spec.authors = ['Orta Therox', 'Kyle Fuller']
-  spec.summary = ''
+  spec.summary = 'CocoaPods plugin to build documentation for a pod.'
   spec.homepage = 'https://github.com/CocoaPods/cocoapods-appledoc'
   spec.license = 'MIT'
   spec.files = `git ls-files`.split($/)
