@@ -48,6 +48,14 @@ module Pod
           headers.uniq
         end
 
+        def spec_authors
+          if @spec.authors.is_a?(Hash)
+            @spec.authors.keys.join(', ')
+          else
+            @spec.authors.to_s
+          end
+        end
+
         def generate_docset
           escaped_headers = public_headers_files.map do |header_file|
             Shellwords.escape(header_file)
@@ -57,7 +65,7 @@ module Pod
             'appledoc',
             "--company-id 'org.cocoadocs.#{@spec.name.downcase}'",
             "--project-name '#{@spec.name}'",
-            "--project-company '#{@spec.authors.to_s}'",
+            "--project-company '#{spec_authors}'",
             "--project-version '#{@spec.version}'",
             '--no-install-docset', # Don't install the docset into Xcode
             '--create-html',
