@@ -67,8 +67,16 @@ module Pod
             "--project-name '#{@spec.name}'",
             "--project-company '#{spec_authors}'",
             "--project-version '#{@spec.version}'",
+            '--keep-undocumented-objects',
+            '--keep-undocumented-members',
+            '--keep-intermediate-files',
             '--no-install-docset', # Don't install the docset into Xcode
+            "--docset-feed-name #{@spec.name}",
+            "--docset-feed-url #{base_url}docsets/#{@spec.name}/xcode-docset.atom",
+            '--docset-package-filename docset',
+            "--docset-package-url #{base_url}docsets/#{@spec.name}/docset.xar",
             '--create-html',
+            '--create-docset',
             '--publish-docset',
             "--output #{Shellwords.escape(output_location)}",
             *escaped_headers
@@ -108,6 +116,10 @@ module Pod
 
         APPLEDOC_TMP_DIR = Pathname.new('/tmp/CocoaPods/AppleDoc')
         APPLEDOC_DOWNLOAD_DIRECTORY = File.join(APPLEDOC_TMP_DIR, 'Sources')
+      end
+
+      def base_url
+        "http://cocoadocs.org/"
       end
     end
   end
