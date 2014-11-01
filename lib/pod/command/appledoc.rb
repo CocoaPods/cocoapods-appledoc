@@ -100,7 +100,7 @@ module Pod
       end
 
       def spec_with_path(path)
-        Spec.from_file(path)
+        Specification.from_file(path)
       rescue
         nil
       end
